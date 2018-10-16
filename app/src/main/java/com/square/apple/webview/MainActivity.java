@@ -20,49 +20,49 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this,"ca-app-pub-2269438657346239~6875825693");
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-2269438657346239/7832504519");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                startActivity(new Intent(MainActivity.this,WebviewActivity.class));
-            }
-        });
+//        MobileAds.initialize(this,"ca-app-pub-2269438657346239~6875825693");
+//
+//        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId("ca-app-pub-2269438657346239/7832504519");
+//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+//
+//        mInterstitialAd.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//                // Code to be executed when an ad finishes loading.
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(int errorCode) {
+//                // Code to be executed when an ad request fails.
+//            }
+//
+//            @Override
+//            public void onAdOpened() {
+//                // Code to be executed when the ad is displayed.
+//            }
+//
+//            @Override
+//            public void onAdLeftApplication() {
+//                // Code to be executed when the user has left the app.
+//            }
+//
+//            @Override
+//            public void onAdClosed() {
+//                startActivity(new Intent(MainActivity.this,WebviewActivity.class));
+//            }
+//        });
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+//                if (mInterstitialAd.isLoaded()) {
+//                    mInterstitialAd.show();
+//                } else {
                     startActivity(new Intent(MainActivity.this,WebviewActivity.class));
                     Log.d("TAG", "The interstitial wasn't loaded yet.");
-                }
+//                }
 
             }
         },2000);
